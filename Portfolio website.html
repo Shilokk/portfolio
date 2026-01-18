@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shilo Karakkattu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f3f0;
+            color: #2a2a2a;
+            line-height: 1.6;
+        }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .hero {
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 5rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
+        }
+
+        .scroll-indicator {
+            margin-top: 5rem;
+            color: #8a8a8a;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .scroll-indicator::after {
+            content: '↓';
+            display: block;
+            font-size: 1.5rem;
+            margin-top: 0.75rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-8px);
+            }
+            60% {
+                transform: translateY(-4px);
+            }
+        }
+
+        h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            color: #1a1a1a;
+            margin-bottom: 3rem;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-photo {
+            width: 320px;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            filter: grayscale(100%);
+            transition: filter 0.4s ease, transform 0.4s ease;
+            display: block;
+        }
+
+        .about-photo:hover {
+            filter: grayscale(0%);
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #about .about-content {
+            animation: fadeUp 0.8s ease both;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: #4a4a4a;
+            line-height: 1.8;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-meta {
+            display: none;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: #ffffff;
+            border: 1px solid #D5B9B2;
+            border-radius: 12px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            border-color: #A26769;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(162, 103, 105, 0.1);
+        }
+
+        .project-meta {
+            display: none;
+        }
+
+        .project-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            letter-spacing: -0.01em;
+        }
+
+        .arrow {
+            color: #8a8a8a;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover .arrow {
+            color: #A26769;
+            transform: translate(3px, -3px);
+        }
+
+        .project-description {
+            color: #6a6a6a;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .contact-content {
+            text-align: center;
+        }
+
+        .contact-intro {
+            font-size: 1.1rem;
+            color: #4a4a4a;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .contact-label {
+            font-size: 0.75rem;
+            color: #8a8a8a;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-link {
+            font-size: 1rem;
+            color: #2a2a2a;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-link:hover {
+            color: #A26769;
+        }
+
+        .contact-link svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        footer {
+            padding: 3rem 0;
+            text-align: center;
+            color: #8a8a8a;
+            font-size: 0.85rem;
+            border-top: 1px solid #e8e6e1;
+        }
+
+        @media (max-width: 968px) {
+            h1 {
+                font-size: 3.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            /* Center image on mobile */
+            .about-photo {
+                margin: 0 auto;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                flex-direction: row;
+                gap: 4rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            .about-content {
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="container">
+            <h1>Shilo Karakkattu</h1>
+            <div class="scroll-indicator">Scroll</div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="section-meta">About</div>
+            <div class="about-content">
+                <img 
+                    src="images/profile.jpg" 
+                    alt="Photo of me" 
+                    class="about-photo"
+                    loading="lazy"
+                />
+                <div class="about-text">
+                    <p>I'm a high school researcher and organizer based in Arizona. My work connects biomedical research, environmental health, and public-facing storytelling—with a focus on making science useful to communities most affected by health and climate risk.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="projects">
+        <div class="container">
+            <div class="section-meta">Selected Work</div>
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <a href="https://www.ssbtr.org/" class="project-card" target="_blank" rel="noopener">
+                    <div class="project-meta">Fundraising</div>
+                    <div class="project-title">
+                        <span>SSBTR</span>
+                        <span class="arrow">↗</span>
+                    </div>
+                    <p class="project-description">Pediatric brain tumor research fundraising and outreach</p>
+                </a>
+
+                <a href="https://tmrinfocus.org/" class="project-card" target="_blank" rel="noopener">
+                    <div class="project-meta">Documentary</div>
+                    <div class="project-title">
+                        <span>Tomorrow in Focus</span>
+                        <span class="arrow">↗</span>
+                    </div>
+                    <p class="project-description">Visual storytelling on climate, AI, and equity</p>
+                </a>
+
+                <a href="https://www.addictionawareness.us/" class="project-card" target="_blank" rel="noopener">
+                    <div class="project-meta">Advocacy</div>
+                    <div class="project-title">
+                        <span>Addiction Awareness</span>
+                        <span class="arrow">↗</span>
+                    </div>
+                    <p class="project-description">Youth-led education, advocacy, and service initiatives</p>
+                </a>
+
+                <a href="https://imagineland2040.org/" class="project-card" target="_blank" rel="noopener">
+                    <div class="project-meta">Speculative Research</div>
+                    <div class="project-title">
+                        <span>ImagineLand2040</span>
+                        <span class="arrow">↗</span>
+                    </div>
+                    <p class="project-description">Climate futures, land use, and speculative storytelling</p>
+                </a>
+
+                <a href="https://autismdiscovery.org/index.php/home-adtf" class="project-card" target="_blank" rel="noopener">
+                    <div class="project-meta">Research</div>
+                    <div class="project-title">
+                        <span>Cancer Research (ADTF)</span>
+                        <span class="arrow">↗</span>
+                    </div>
+                    <p class="project-description">Metabolic and neurological research through the Autism Discovery & Treatment Foundation</p>
+                </a>
+
+                <a href="https://access.asu.edu/programs/scene" class="project-card" target="_blank" rel="noopener">
+                    <div class="project-meta">Program</div>
+                    <div class="project-title">
+                        <span>ASU SCENE</span>
+                        <span class="arrow">↗</span>
+                    </div>
+                    <p class="project-description">Environmental research and ISEF-track project development</p>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="section-meta">Get in Touch</div>
+                <h2>Connect</h2>
+                <p class="contact-intro">I'm always open to conversation! Contact me here.</p>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <span class="contact-label">Email</span>
+                        <a href="mailto:shilokarakkattu@gmail.com" class="contact-link">
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                            shilokarakkattu@gmail.com
+                        </a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">LinkedIn</span>
+                        <a href="https://www.linkedin.com/in/shilo-k/" class="contact-link" target="_blank" rel="noopener">
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                            /in/shilo-k
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Shilo Karakkattu</p>
+    </footer>
+</body>
+</html>
