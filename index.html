@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shilo Karakkattu</title>
+    <link rel="icon" type="image/jpeg" href="profile.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <style>
         * {
@@ -100,12 +101,14 @@
             object-fit: cover;
             border-radius: 8px;
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-            transition: transform 0.4s ease;
+            filter: grayscale(100%);
+            transition: filter 0.4s ease, transform 0.4s ease;
             display: block;
         }
 
         .about-photo:hover {
-            transform: translateY(-8px);
+            filter: grayscale(0%);
+            transform: translateY(-2px);
         }
 
         @keyframes fadeUp {
@@ -320,8 +323,7 @@
                     loading="lazy"
                 />
                 <div class="about-text">
-                    <p>I work on projects that connect health and the environment. What matters most to me is whether the work actually helps people, whether through research, fundraising, or advocacy that leads to real change.</p>
-                    <p>Outside my projects, I've been reading <em>Confessions</em> by St. Augustine, learning to color grade, and tinkering with small electronics. I also love traveling and seeing firsthand how culture shapes the way people build and solve problems.</p>
+                    <p>I'm a high school researcher and organizer based in Arizona. My work connects biomedical research, environmental health, and public-facing storytelling—with a focus on making science useful to communities most affected by health and climate risk.</p>
                 </div>
             </div>
         </div>
