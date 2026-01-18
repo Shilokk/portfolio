@@ -100,14 +100,12 @@
             object-fit: cover;
             border-radius: 8px;
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-            filter: grayscale(100%);
-            transition: filter 0.4s ease, transform 0.4s ease;
+            transition: transform 0.4s ease;
             display: block;
         }
 
         .about-photo:hover {
-            filter: grayscale(0%);
-            transform: translateY(-2px);
+            transform: translateY(-8px);
         }
 
         @keyframes fadeUp {
@@ -316,13 +314,14 @@
             <div class="section-meta">About</div>
             <div class="about-content">
                 <img 
-                    src="profile.jpg" 
+                    src="images/profile.jpg" 
                     alt="Photo of me" 
                     class="about-photo"
                     loading="lazy"
                 />
                 <div class="about-text">
-                    <p>I'm a high school researcher and organizer based in Arizona. My work connects biomedical research, environmental health, and public-facing storytelling—with a focus on making science useful to communities most affected by health and climate risk.</p>
+                    <p>I work on projects that connect health and the environment. What matters most to me is whether the work actually helps people, whether through research, fundraising, or advocacy that leads to real change.</p>
+                    <p>Outside my projects, I've been reading <em>Confessions</em> by St. Augustine, learning to color grade, and tinkering with small electronics. I also love traveling and seeing firsthand how culture shapes the way people build and solve problems.</p>
                 </div>
             </div>
         </div>
