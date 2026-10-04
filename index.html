@@ -16,9 +16,9 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shilo Karakkattu">
 <meta name="twitter:description" content="Research and nonprofit work by Shilo Karakkattu, a high school student from Mesa, Arizona.">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png?v=2" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
@@ -208,6 +208,9 @@ a:hover { text-decoration-thickness: 2px; }
   .top { transition: none; }
 }
 .top .note span { display: block; }
+.cover-btn { font: inherit; color: inherit; letter-spacing: inherit; text-transform: inherit; background: none; border: 0; padding: 0; margin: 0; cursor: pointer; text-align: inherit; }
+.cover-btn:hover { color: var(--accent); }
+.cover-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
 /* Hero */
 .hero { padding-top: 3rem; padding-bottom: 4.5rem; }
@@ -657,7 +660,7 @@ footer p { margin: 0; }
 <div class="sheet">
 
   <header class="row top" id="top">
-    <div class="note mono"><span>Mesa, Arizona</span><span>Class of 2027</span></div>
+    <div class="note mono"><span><button class="cover-btn" type="button" id="reopen" aria-label="Mesa, Arizona. Show the notebook cover again">Mesa, Arizona</button></span><span>Class of 2027</span></div>
     <div class="body">
       <nav aria-label="Sections">
         <ul class="mono">
@@ -908,18 +911,28 @@ footer p { margin: 0; }
   (function () {
     var root = document.documentElement;
     var intro = document.getElementById("intro");
-    if (!root.classList.contains("intro-on")) { intro.remove(); root.classList.add("ready"); return; }
-
     var sheet = document.querySelector(".sheet");
     var book = document.getElementById("book");
+    var reopen = document.getElementById("reopen");
     var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var done = false;
+    var done = true;
 
     if (window.matchMedia("(hover: none)").matches) {
       intro.querySelector(".hint .hand").textContent = "tap to open";
       intro.querySelector(".hint .mono").textContent = "or swipe up";
     }
-    sheet.inert = true;
+
+    // Put the notebook cover back up, closed, as on the first visit.
+    function show() {
+      if (!done) return;
+      if (!intro.isConnected) document.body.appendChild(intro);
+      intro.classList.remove("opening", "closing");
+      void intro.offsetWidth;
+      root.classList.add("intro-on");
+      sheet.inert = true;
+      done = false;
+      book.focus({ preventScroll: true });
+    }
 
     function open() {
       if (done) return;
@@ -936,7 +949,16 @@ footer p { margin: 0; }
       }, still ? 200 : 2150);
     }
 
+    if (root.classList.contains("intro-on")) {
+      done = false;
+      sheet.inert = true;
+    } else {
+      intro.remove();
+      root.classList.add("ready");
+    }
+
     book.addEventListener("click", open);
+    if (reopen) reopen.addEventListener("click", show);
     window.addEventListener("wheel", function (e) { if (e.deltaY > 0) open(); }, { passive: true });
     window.addEventListener("touchmove", open, { passive: true });
     window.addEventListener("keydown", function (e) {
