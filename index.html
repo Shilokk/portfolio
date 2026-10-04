@@ -17,7 +17,8 @@
 <meta name="twitter:title" content="Shilo Karakkattu">
 <meta name="twitter:description" content="Research and nonprofit work by Shilo Karakkattu, a high school student from Mesa, Arizona.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="profile-480.jpg">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
@@ -576,6 +577,22 @@ h3 {
 .intro.closing { opacity: 0; transition: opacity .55s ease .15s; }
 .intro.closing .floor { opacity: 0; transition: opacity .3s ease; }
 
+/* Phones. A side-opening spread is wider than the screen, so the
+   notebook becomes a top-bound notepad and the cover flips up instead. */
+@media (max-width: 760px) {
+  .book { width: min(15rem, 62vw); }
+  .book .cover { transform-origin: center top; }
+  .book .pages { inset: 0 3% 3% 3%; }
+  .intro .hint { margin-top: 6.5rem; }
+  .book .label { left: 14%; right: 10%; top: 26%; padding: .55rem .65rem .5rem; }
+  .book .label .hand { font-size: 1.12rem; white-space: nowrap; }
+  .book .pin-cactus { width: 19%; left: 16%; bottom: 7%; }
+  .book .tail { width: 34px; margin-left: -17px; }
+  .intro.opening .cover { transform: rotateX(-176deg); }
+  .intro.opening .shift { transform: translateY(44%); }
+  .intro.opening .floor { opacity: 0; transition: opacity .3s ease; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .intro *, .intro { transition-duration: .01ms !important; transition-delay: 0s !important; }
 }
@@ -688,7 +705,7 @@ footer p { margin: 0; }
       </div>
 
       <article class="row entry">
-        <div class="note mono" aria-hidden="true">01.1<br>Environmental engineering</div>
+        <div class="note mono" aria-hidden="true">01.1<br>Water research</div>
         <div class="body measure">
           <h3>Hydrogel beads for clean water</h3>
           <p class="role">Independent researcher, ASU SCENE program</p>
@@ -703,7 +720,7 @@ footer p { margin: 0; }
       </article>
 
       <article class="row entry">
-        <div class="note mono" aria-hidden="true">01.2<br>Biomedical research</div>
+        <div class="note mono" aria-hidden="true">01.2<br>Neuroscience</div>
         <div class="body measure">
           <h3>Dr. Adrienne Scheck's lab</h3>
           <p class="role">Research intern, Autism Discovery and Treatment Foundation</p>
@@ -732,7 +749,7 @@ footer p { margin: 0; }
       </article>
 
       <article class="row entry">
-        <div class="note mono" aria-hidden="true">02.2<br>Brain tumor research</div>
+        <div class="note mono" aria-hidden="true">02.2<br>Fundraising</div>
         <div class="body measure">
           <h3>Students Supporting Brain Tumor Research</h3>
           <p class="role">Statewide co-chair</p>
@@ -753,7 +770,7 @@ footer p { margin: 0; }
       </article>
 
       <article class="row entry">
-        <div class="note mono" aria-hidden="true">02.4<br>Addiction</div>
+        <div class="note mono" aria-hidden="true">02.4<br>Addiction recovery</div>
         <div class="body measure">
           <h3>Addiction Awareness Association</h3>
           <p class="role">Founder and President, Arizona chapter</p>

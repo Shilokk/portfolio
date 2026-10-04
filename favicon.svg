@@ -1,10 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="#F3EEE3"/>
-  <circle cx="32" cy="32" r="22" fill="#C2E6FA" stroke="#009FE8" stroke-width="2"/>
-  <path d="M17 24a17 17 0 0 1 11-9" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
-  <circle cx="32" cy="32" r="16" fill="#D6E6E0" stroke="#1C1F2B" stroke-width="2"/>
-  <circle cx="27" cy="36" r="2.6" fill="#6F9460"/>
-  <circle cx="37" cy="29" r="2.2" fill="#6F9460"/>
-  <circle cx="35" cy="39" r="1.6" fill="#6F9460"/>
-  <ellipse cx="26" cy="26" rx="4" ry="2.4" fill="#fff" opacity=".75"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!-- Cactus from Phosphor Icons (duotone), MIT license -->
+  <g transform="translate(2.6 17) scale(.98)">
+    <path d="M232,116h0a60,60,0,0,1-60,60H160v40H96V136H84A60,60,0,0,1,24,76h0A20,20,0,0,1,44,56h0A20,20,0,0,1,64,76,20,20,0,0,0,84,96H96V56a32,32,0,0,1,32-32h0a32,32,0,0,1,32,32v80h12a20,20,0,0,0,20-20,20,20,0,0,1,20-20h0A20,20,0,0,1,232,116Z" fill="#6DBE6A"/>
+    <path d="M216,208H168V184h4a68.07,68.07,0,0,0,68-68,28,28,0,0,0-56,0,12,12,0,0,1-12,12h-4V56a40,40,0,0,0-80,0V88H84A12,12,0,0,1,72,76a28,28,0,0,0-56,0,68.07,68.07,0,0,0,68,68h4v64H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16ZM96,128H84A52.06,52.06,0,0,1,32,76a12,12,0,0,1,24,0,28,28,0,0,0,28,28H96a8,8,0,0,0,8-8V56a24,24,0,0,1,48,0v80a8,8,0,0,0,8,8h12a28,28,0,0,0,28-28,12,12,0,0,1,24,0,52.06,52.06,0,0,1-52,52H160a8,8,0,0,0-8,8v32H104V136A8,8,0,0,0,96,128Z" fill="#1C1F2B"/>
+    <circle cx="128" cy="22" r="16" fill="#F9A8B8" stroke="#1C1F2B" stroke-width="9"/>
+  </g>
 </svg>
