@@ -1,427 +1,975 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shilo Karakkattu</title>
-    <link rel="icon" type="image/jpeg" href="profile.jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shilo Karakkattu</title>
+<meta name="description" content="Research and nonprofit work by Shilo Karakkattu, a high school student from Mesa, Arizona.">
+<link rel="canonical" href="https://www.shilo-karakkattu.com/">
+<meta name="theme-color" content="#F3EEE3">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Shilo Karakkattu">
+<meta property="og:description" content="Research and nonprofit work by Shilo Karakkattu, a high school student from Mesa, Arizona.">
+<meta property="og:url" content="https://www.shilo-karakkattu.com/">
+<meta property="og:image" content="https://www.shilo-karakkattu.com/profile.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Shilo Karakkattu">
+<meta name="twitter:description" content="Research and nonprofit work by Shilo Karakkattu, a high school student from Mesa, Arizona.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="profile-480.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
+<script>
+  // Show the notebook cover once per visit. Links to a section skip it.
+  document.documentElement.classList.add("js");
+  (function () {
+    var seen = false;
+    try { seen = sessionStorage.getItem("sk-opened") === "1"; } catch (e) {}
+    if (!seen && !location.hash) document.documentElement.classList.add("intro-on");
+  })();
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Shilo Karakkattu","url":"https://www.shilo-karakkattu.com/","image":"https://www.shilo-karakkattu.com/profile.jpg","homeLocation":{"@type":"Place","name":"Mesa, Arizona"},"sameAs":["https://www.linkedin.com/in/shilo-karakkattu"]}
+</script>
+<!-- Section icons from Phosphor Icons (duotone), MIT license, phosphoricons.com -->
+<style>
+:root {
+  --paper: #F3EEE3;
+  --grid: rgba(28, 31, 43, .055);
+  --ink: #1C1F2B;
+  --ink-2: #4A4E5C;
+  --accent: #00619A;
+  --dora: #009FE8;
+  --yellow: #FFB400;
+  --cactus: #33523F;
+  --amber: #C58B3A;
+  --rule: #D6CCB9;
+  --margin: 13.5rem;
+  --gap: 2.5rem;
+  --serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --hand: "Gaegu", "Comic Sans MS", "Chalkboard SE", cursive;
+  --hl-blue: #C2E6FA;
+  --hl-pink: #F9D0CB;
+  --hl-green: #CFE5C3;
+  --hl-amber: #F5DFA4;
+  --hl-sky: #CBE4EE;
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 1rem; }
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+body {
+  margin: 0;
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 28px 28px;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.1875rem;
+  line-height: 1.6;
+  font-optical-sizing: auto;
+  text-rendering: optimizeLegibility;
+}
+img, svg { display: block; max-width: 100%; }
+p { margin: 0 0 1em; }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #f5f3f0;
-            color: #2a2a2a;
-            line-height: 1.6;
-        }
+a {
+  color: var(--accent);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .18em;
+}
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
 
-        section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 5rem 2rem;
-        }
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 10;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: .9rem;
+  padding: .6rem .9rem;
+}
+.skip:focus { top: 1rem; }
 
-        .container {
-            max-width: 1100px;
-            width: 100%;
-            margin: 0 auto;
-        }
+.mono {
+  font-family: var(--mono);
+  font-size: .8rem;
+  letter-spacing: .02em;
+  line-height: 1.5;
+}
 
-        .hero {
-            text-align: center;
-        }
+/* The page is a notebook sheet. Everything sits in rows with a margin
+   column on the left, and the magenta margin rule runs between them. */
+.sheet {
+  position: relative;
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 0 1.5rem 0 0;
+}
+.sheet::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--margin);
+  width: 2px;
+  background: var(--dora);
+  opacity: .75;
+}
+.row {
+  display: grid;
+  grid-template-columns: var(--margin) minmax(0, 1fr);
+}
+.row > .note {
+  padding: .35rem 1.5rem 0 1.5rem;
+  text-align: right;
+  color: var(--ink-2);
+}
+.row > .body {
+  padding-left: var(--gap);
+  min-width: 0;
+}
+.measure { max-width: 40rem; }
 
-        h1 {
-            font-family: 'Crimson Pro', serif;
-            font-size: 5rem;
-            font-weight: 400;
-            color: #1a1a1a;
-            margin-bottom: 3rem;
-            letter-spacing: -0.02em;
-        }
+/* Header */
+.top {
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+.top nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem 1.25rem;
+}
+.top nav a {
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-block;
+  padding: .4rem 0;
+}
+.top nav a:hover { color: var(--accent); text-decoration: underline; }
+/* The section you're reading gets a blue underline in the menu */
+.top nav a[aria-current="location"] {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: var(--dora);
+  text-decoration-thickness: 2px;
+  text-underline-offset: .4em;
+}
 
-        .scroll-indicator {
-            margin-top: 5rem;
-            color: #8a8a8a;
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
+/* On wider screens the menu stays at the top while you scroll */
+@media (min-width: 761px) {
+  html { scroll-padding-top: 6.5rem; }
+  .top {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    padding-top: 1rem;
+    padding-bottom: .75rem;
+    background: rgba(243, 238, 227, .9);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 1px 0 transparent;
+    transition: box-shadow .25s ease;
+  }
+  .top.scrolled { box-shadow: 0 1px 0 var(--rule); }
+  /* Carry the margin line through the menu bar */
+  .top::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--margin);
+    width: 2px;
+    background: var(--dora);
+    opacity: .75;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .top { transition: none; }
+}
+.top .note span { display: block; }
 
-        .scroll-indicator::after {
-            content: '↓';
-            display: block;
-            font-size: 1.5rem;
-            margin-top: 0.75rem;
-            animation: bounce 2s infinite;
-        }
+/* Hero */
+.hero { padding-top: 3rem; padding-bottom: 4.5rem; }
+h1 {
+  font-weight: 500;
+  font-size: clamp(2.7rem, 7.6vw, 5.5rem);
+  line-height: .95;
+  letter-spacing: -.03em;
+  margin: 0;
+  font-variation-settings: "opsz" 72;
+}
+/* Brush underline under the name */
+.swoosh {
+  width: min(26rem, 72%);
+  height: auto;
+  margin: .55rem 0 2.25rem -.2rem;
+  overflow: visible;
+}
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-8px);
-            }
-            60% {
-                transform: translateY(-4px);
-            }
-        }
+/* Sections */
+section { padding-bottom: 5rem; }
+.section-head {
+  position: relative;
+  padding-top: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+/* A hand-drawn wavy rule instead of a straight one */
+.section-head::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='10' viewBox='0 0 40 10'%3E%3Cpath d='M0 5 Q10 0 20 5 T40 5' fill='none' stroke='%23C9BCA5' stroke-width='1.6'/%3E%3C/svg%3E") repeat-x left center / 40px 10px;
+}
+.section-head .note { padding-top: 1.1rem; }
+.section-head .num {
+  font-family: var(--mono);
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--accent);
+  line-height: 1;
+}
+h2 {
+  font-weight: 400;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -.02em;
+  margin: .6rem 0 0;
+}
+.entry { margin-bottom: 3.25rem; }
+.entry:last-child { margin-bottom: 0; }
+h3 {
+  font-weight: 500;
+  font-size: 1.55rem;
+  line-height: 1.2;
+  letter-spacing: -.01em;
+  margin: 0 0 .3rem;
+}
+.role {
+  font-family: var(--mono);
+  font-size: .85rem;
+  color: var(--cactus);
+  margin: 0 0 1rem;
+}
+.links {
+  list-style: none;
+  padding: 0;
+  margin: 1.1rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem 1.5rem;
+}
+.links a { display: inline-block; padding: .2rem 0; }
+.ext::after { content: "\2197"; display: inline-block; margin-left: .3em; font-family: var(--mono); font-size: .8em; text-decoration: none; }
 
-        h2 {
-            font-family: 'Crimson Pro', serif;
-            font-size: 2.5rem;
-            color: #1a1a1a;
-            margin-bottom: 3rem;
-            font-weight: 400;
-            letter-spacing: -0.01em;
-        }
+/* Award stamps */
+.stamps-label { margin: 1.75rem 0 .75rem; color: var(--ink-2); }
+.stamps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .9rem 1rem;
+  align-items: flex-start;
+}
+.stamps li {
+  font-family: var(--mono);
+  font-size: .78rem;
+  font-weight: 500;
+  line-height: 1.35;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--accent);
+  border: 2px solid var(--dora);
+  outline: 1px solid var(--dora);
+  outline-offset: 2px;
+  padding: .55rem .75rem;
+  max-width: 17rem;
+  transform: rotate(-1.2deg);
+  background: rgba(243, 238, 227, .6);
+}
+.stamps li:nth-child(2) { transform: rotate(.9deg); }
+.stamps li:nth-child(3) { transform: rotate(-.4deg); }
+.stamps li span { display: block; font-weight: 400; text-transform: none; letter-spacing: .01em; }
 
-        .about-content {
-            display: grid;
-            grid-template-columns: 320px 1fr;
-            gap: 5rem;
-            align-items: center;
-        }
+/* Hero: name on the left, taped photo on the right */
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 15rem;
+  gap: 2.5rem;
+  align-items: center;
+}
+.hero .swoosh { margin-bottom: 0; }
+.about-me { margin-top: 3rem; }
+.about-label { margin: 0 0 .8rem; color: var(--accent); letter-spacing: .14em; font-weight: 500; }
 
-        .about-photo {
-            width: 320px;
-            height: 380px;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 3px solid #D5B9B2;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-            transition: transform 0.4s ease, border-color 0.4s ease;
-            display: block;
-        }
+/* Taped photo */
+.photo {
+  position: relative;
+  margin: .5rem 0 0;
+  padding: .6rem;
+  background: #FBF8F2;
+  box-shadow: 0 1px 2px rgba(28, 31, 43, .12), 0 8px 22px rgba(28, 31, 43, .08);
+  transform: rotate(1.6deg);
+}
+.photo::before {
+  content: "";
+  position: absolute;
+  top: -.8rem;
+  left: 50%;
+  width: 6.5rem;
+  height: 1.6rem;
+  margin-left: -3.25rem;
+  background: rgba(197, 139, 58, .32);
+  transform: rotate(-3deg);
+}
+.photo img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
 
-        .about-photo:hover {
-            transform: translateY(-8px);
-            border-color: #A26769;
-        }
+/* TODO markers. These are meant to be seen until they are filled in. */
+.todo {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: .78rem;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1.4;
+  color: var(--ink);
+  background: #FFE45C;
+  border: 1px dashed var(--ink);
+  padding: .1rem .4rem;
+  vertical-align: .1em;
+}
 
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+/* Handwriting, highlighter, and doodles */
+.hand {
+  font-family: var(--hand);
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.1;
+}
 
-        #about .about-content {
-            animation: fadeUp 0.8s ease both;
-        }
 
-        .about-text {
-            font-size: 1.1rem;
-            color: #4a4a4a;
-            line-height: 1.8;
-        }
+.doodle {
+  display: block;
+  width: 2.6rem;
+  height: auto;
+  margin: .7rem 0 0 auto;
+  overflow: visible;
+}
+.stamps-label.hand { font-size: 1.35rem; color: var(--ink-2); font-weight: 400; }
 
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
 
-        .section-meta {
-            display: none;
-        }
+/* The notebook cover shown on the first visit. It only appears when the
+   head script adds .intro-on, so without JavaScript the page shows as normal. */
+.intro { display: none; }
+.intro-on { overflow: hidden; }
+.intro-on .intro {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  background-color: var(--paper);
+  background-image: radial-gradient(rgba(0, 159, 232, .28) 1.2px, transparent 1.3px);
+  background-size: 22px 22px;
+  overflow: hidden;
+}
+.stage { will-change: transform; }
+.shift { perspective: 2000px; }
+.book {
+  position: relative;
+  display: block;
+  width: min(19rem, 72vw);
+  aspect-ratio: 3 / 4;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  transform-style: preserve-3d;
+}
+.book:focus-visible { outline-offset: 12px; border-radius: 10px; }
+.book .pages,
+.book .face {
+  position: absolute;
+  inset: 0;
+  display: block;
+  border-radius: 4px 14px 14px 4px;
+}
+.book .pages {
+  inset: 2.5% 0 2.5% 3%;
+  overflow: hidden;
+  background: repeating-linear-gradient(#FBF8F2 0 22px, #D9E3EA 22px 23px), #FBF8F2;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .05);
+  transform: translateZ(-2px);
+}
+.book .pages::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 18%;
+  width: 1.5px;
+  background: rgba(0, 159, 232, .6);
+}
+.book .pages::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(28, 31, 43, .22), transparent 45%);
+  opacity: 0;
+}
+.book .page-hi {
+  position: absolute;
+  left: 30%;
+  top: 36%;
+  font-size: 2.8rem;
+  color: var(--accent);
+  transform: rotate(-6deg);
+  clip-path: inset(0 100% 0 0);
+}
+.book .cover {
+  position: absolute;
+  inset: 0;
+  display: block;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform .5s cubic-bezier(.4, 0, .2, 1);
+}
+.book .face { backface-visibility: hidden; }
+.book .front {
+  background:
+    repeating-linear-gradient(115deg, rgba(255, 255, 255, .08) 0 2px, transparent 2px 5px),
+    linear-gradient(90deg, #E39E00 0 9%, var(--yellow) 9% 100%);
+  box-shadow: inset -2px 0 0 rgba(0, 0, 0, .1), inset 0 -3px 0 rgba(0, 0, 0, .06);
+}
+.book .back {
+  transform: rotateY(180deg);
+  background: #EFE6D6;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .06);
+}
+.book .label {
+  position: absolute;
+  left: 16%;
+  right: 12%;
+  top: 30%;
+  display: block;
+  background: #FBF8F2;
+  border-radius: 6px;
+  padding: .7rem .8rem .6rem;
+  box-shadow: 0 0 0 3px rgba(251, 248, 242, .5);
+  text-align: left;
+}
+.book .label .mono { display: block; font-size: .62rem; color: var(--ink-2); letter-spacing: .08em; }
+.book .label .hand { display: block; color: var(--ink); font-size: 1.45rem; border-bottom: 1.5px solid #CFC4B0; margin-bottom: .45rem; padding-bottom: .05rem; }
+.book .label .hand:last-child { margin-bottom: 0; }
+.book .pin-cactus {
+  position: absolute;
+  left: 18%;
+  bottom: 11%;
+  width: 24%;
+  height: auto;
+  transform: rotate(-8deg);
+  filter: drop-shadow(0 2px 0 rgba(28, 31, 43, .3));
+}
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
-        }
+/* Rosary beads wrapped around the cover in place of an elastic band */
+.book .strand {
+  position: absolute;
+  top: -3%;
+  bottom: -1%;
+  right: 11%;
+  width: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.book .strand::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 50%;
+  width: 1.6px;
+  margin-left: -.8px;
+  background: #8A8F99;
+}
+.book .rb {
+  position: relative;
+  display: block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1.4px solid #1C1F2B;
+  background: radial-gradient(circle at 34% 30%, #fff 0 16%, #9ED8F7 22% 55%, #3C9FD6 100%);
+}
+.book .rb.big { width: 19px; height: 19px; }
+.book .tail-wrap {
+  position: absolute;
+  top: 99%;
+  right: 11%;
+  width: 20px;
+  height: 0;
+  display: block;
+}
+.book .tail {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 44px;
+  max-width: none;
+  height: auto;
+  margin-left: -22px;
+  transform-origin: 50% 0;
+  transform: rotate(3deg);
+}
+.floor {
+  display: block;
+  width: min(15rem, 58vw);
+  height: 18px;
+  margin-top: 1.1rem;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(28, 31, 43, .2), transparent);
+}
+.intro .hint { margin: 6rem 0 0; text-align: center; transition: opacity .25s ease; }
+.intro .hint .hand { display: block; font-size: 2.1rem; color: var(--accent); }
+.intro .hint .mono { display: block; color: var(--ink-2); margin-top: .2rem; }
 
-        .project-card {
-            background: #ffffff;
-            border: 1px solid #D5B9B2;
-            border-radius: 12px;
-            padding: 2.5rem;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-        }
+@keyframes sweep { 40% { opacity: 1; } }
 
-        .project-card:hover {
-            border-color: #A26769;
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(162, 103, 105, 0.1);
-        }
+@media (hover: hover) {
+  .book:hover .cover { transform: rotateY(-14deg); }
+}
 
-        .project-meta {
-            display: none;
-        }
+/* Opening. The cover swings open with the rosary on it, "hi" writes
+   itself, then the notebook fades away and the site is just there. */
+.intro.opening .cover { transform: rotateY(-178deg); transition: transform 1.15s cubic-bezier(.65, 0, .25, 1) .1s; }
+.intro.opening .shift { transform: translateX(42%); transition: transform 1.15s cubic-bezier(.65, 0, .25, 1) .1s; }
+.intro.opening .pages::after { animation: sweep 1.2s ease .15s; }
+.intro.opening .page-hi { clip-path: inset(0 0 0 0); transition: clip-path .5s ease-out .85s; }
+.intro.opening .hint { opacity: 0; }
+.intro.closing { opacity: 0; transition: opacity .55s ease .15s; }
+.intro.closing .floor { opacity: 0; transition: opacity .3s ease; }
 
-        .project-title {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            letter-spacing: -0.01em;
-        }
+@media (prefers-reduced-motion: reduce) {
+  .intro *, .intro { transition-duration: .01ms !important; transition-delay: 0s !important; }
+}
 
-        .arrow {
-            color: #8a8a8a;
-            font-size: 1.3rem;
-            transition: all 0.3s ease;
-        }
+/* Press */
+.press { list-style: none; padding: 0; margin: 0; }
+.press li { padding: 1rem 0; border-bottom: 1px solid var(--rule); }
+.press li:first-child { padding-top: 0; }
+.press .mono { display: block; color: var(--ink-2); margin-bottom: .25rem; }
+.press a { font-size: 1.2rem; line-height: 1.35; }
 
-        .project-card:hover .arrow {
-            color: #A26769;
-            transform: translate(3px, -3px);
-        }
+.press-also { list-style: none; margin: .6rem 0 0; padding: 0 0 0 1rem; border-left: 2px solid var(--rule); }
+.press-also li { padding: .35rem 0; border: 0; }
+.press-also a { font-size: 1rem; }
 
-        .project-description {
-            color: #6a6a6a;
-            line-height: 1.7;
-            font-size: 0.95rem;
-        }
+/* Contact */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+}
+.contact-list li { margin-bottom: 1rem; }
+.contact-list .mono { display: block; color: var(--ink-2); }
+.contact-list a { font-size: clamp(1.25rem, 3.6vw, 1.75rem); word-break: break-word; }
 
-        .contact-content {
-            text-align: center;
-        }
+footer { padding: 2rem 0 3rem; color: var(--ink-2); }
+footer p { margin: 0; }
 
-        .contact-intro {
-            font-size: 1.1rem;
-            color: #4a4a4a;
-            line-height: 1.8;
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
 
-        .contact-grid {
-            display: flex;
-            justify-content: center;
-            gap: 4rem;
-            flex-wrap: wrap;
-        }
 
-        .contact-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .contact-label {
-            font-size: 0.75rem;
-            color: #8a8a8a;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .contact-link {
-            font-size: 1rem;
-            color: #2a2a2a;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .contact-link:hover {
-            color: #A26769;
-        }
-
-        .contact-link svg {
-            width: 18px;
-            height: 18px;
-        }
-
-        footer {
-            padding: 3rem 0;
-            text-align: center;
-            color: #8a8a8a;
-            font-size: 0.85rem;
-            border-top: 1px solid #e8e6e1;
-        }
-
-        @media (max-width: 968px) {
-            h1 {
-                font-size: 3.5rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            /* Center image on mobile */
-            .about-photo {
-                margin: 0 auto;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-grid {
-                flex-direction: row;
-                gap: 4rem;
-            }
-        }
-
-        @media (max-width: 640px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            section {
-                padding: 3rem 1.5rem;
-            }
-
-            .about-content {
-                gap: 2rem;
-            }
-        }
-    </style>
+/* Phone. The margin column folds into a strip along the left edge and the
+   margin notes move above the text they belong to. */
+@media (max-width: 760px) {
+  :root { --margin: 1rem; --gap: 1.25rem; }
+  body { font-size: 1.0625rem; }
+  .sheet { padding-right: 1rem; }
+  .row { grid-template-columns: minmax(0, 1fr); padding-left: calc(var(--margin) + var(--gap)); }
+  .row > .body { padding-left: 0; }
+  .row > .note {
+    text-align: left;
+    padding: 0 0 .5rem;
+  }
+  .top .note span { display: inline; }
+  .top .note span + span::before { content: "\00A0\00B7\00A0"; }
+  .hero { padding-top: 1.5rem; padding-bottom: 3rem; }
+  .swoosh { margin-bottom: 1.6rem; }
+  .section-head { margin-bottom: 1.75rem; }
+  .section-head .note { padding-top: 1rem; display: flex; align-items: center; gap: .6rem; }
+  .doodle { width: 2.1rem; margin: 0; }
+  .section-head .body h2 { margin-top: .2rem; }
+  section { padding-bottom: 3.5rem; }
+  .entry { margin-bottom: 2.5rem; }
+  h3 { font-size: 1.35rem; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  .photo { max-width: 13rem; margin-left: .25rem; }
+}
+</style>
 </head>
 <body>
-    <section class="hero">
-        <div class="container">
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="sheet">
+
+  <header class="row top" id="top">
+    <div class="note mono"><span>Mesa, Arizona</span><span>Class of 2027</span></div>
+    <div class="body">
+      <nav aria-label="Sections">
+        <ul class="mono">
+          <li><a href="#research">Research</a></li>
+          <li><a href="#service">Leadership and service</a></li>
+          <li><a href="#recognition">Recognition</a></li>
+          <li><a href="#press">Press</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <div class="row hero">
+      <div class="note mono" aria-hidden="true"></div>
+      <div class="body">
+        <div class="hero-grid">
+          <div class="hero-name">
             <h1>Shilo Karakkattu</h1>
-            <div class="scroll-indicator">Scroll</div>
+            <svg class="swoosh" viewBox="0 0 400 26" aria-hidden="true" focusable="false"><path d="M5 17C80 5 170 23 250 12S360 7 395 15" fill="none" stroke="#009FE8" stroke-width="7" stroke-linecap="round"/></svg>
+          </div>
+          <figure class="photo">
+        <picture>
+          <source type="image/webp" srcset="profile-480.webp 480w, profile-800.webp 800w" sizes="(max-width: 760px) 13rem, 15rem">
+          <img src="profile-480.jpg" width="480" height="480" decoding="async" alt="Shilo Karakkattu smiling, wearing a navy quarter-zip over a light blue collared shirt, against a white background.">
+        </picture>
+      </figure>
         </div>
+        <div class="about-me measure">
+          <p class="mono about-label">ABOUT ME</p>
+          <p>I'm a high school student from Arizona. I research water and neuroscience, and I care most about getting science to the communities that need it.</p>
+          <p>My most recent projects have been a low-cost hydrogel bead that removes copper and microplastics from water and <a href="https://scamsafe.us">ScamSafe</a>, a free tool that explains scam messages in plain language.</p>
+          <p>Outside of this work I've been trying to learn how to color grade. I might post some clips soon, so stay tuned 😎.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 01 Research -->
+    <section id="research" aria-labelledby="research-h">
+      <div class="row section-head">
+        <div class="note" aria-hidden="true"><span class="num">01</span><svg class="doodle" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M208,216H48a8,8,0,0,1-6.86-12.12l30.48-50.8h0c13.23-2.48,32-1.41,56.37,10.92,32.25,16.330,54.75,12.91,67.5,7.65h0l19.34,32.23A8,8,0,0,1,208,216Z" fill="#C2E6FA"/><path d="M221.69,199.77,160,96.92V40h8a8,8,0,0,0,0-16H88a8,8,0,0,0,0,16h8V96.92L34.31,199.77A16,16,0,0,0,48,224H208a16,16,0,0,0,13.72-24.23ZM110.86,103.25A7.93,7.93,0,0,0,112,99.14V40h32V99.14a7.93,7.93,0,0,0,1.14,4.11L183.36,167c-12,2.37-29.07,1.37-51.75-10.11-15.91-8.05-31.05-12.32-45.22-12.81ZM48,208l28.54-47.58c14.25-1.73,30.31,1.85,47.82,10.72,19,9.61,35,12.88,48,12.88a69.89,69.89,0,0,0,19.55-2.7L208,208Z" fill="#00619A"/></svg></div>
+        <div class="body"><h2 id="research-h">Research</h2></div>
+      </div>
+
+      <article class="row entry">
+        <div class="note mono" aria-hidden="true">01.1<br>Environmental engineering</div>
+        <div class="body measure">
+          <h3>Hydrogel beads for clean water</h3>
+          <p class="role">Independent researcher, ASU SCENE program</p>
+          <p>I designed a low-cost hydrogel bead that removes copper and microplastics from water in one step. It's made from sodium alginate and prickly pear cactus mucilage with a chitosan coating. The bead takes about four ingredients and can be made at home. I built it for communities near abandoned uranium mines on the Navajo Nation. I ran the project through ASU's SCENE program. A co-authored manuscript is in preparation with AzCATI.</p>
+          <p class="hand stamps-label">Awards for this project</p>
+          <ul class="stamps">
+            <li>1st Place, Environmental Engineering<span>Arizona Science and Engineering Fair</span></li>
+            <li>NOAA Taking the Pulse of the Planet Award</li>
+            <li>Stockholm Junior Water Prize<span>Arizona regional winner</span></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="row entry">
+        <div class="note mono" aria-hidden="true">01.2<br>Biomedical research</div>
+        <div class="body measure">
+          <h3>Dr. Adrienne Scheck's lab</h3>
+          <p class="role">Research intern, Autism Discovery and Treatment Foundation</p>
+          <p>The lab studies metabolic therapies for brain tumors and autism. I do cell culture, PCR, gel electrophoresis, and DNA isolation. I also genotype SNPs for the lab's autism study.</p>
+        </div>
+      </article>
     </section>
 
-    <section id="about">
-        <div class="container">
-            <div class="section-meta">About</div>
-            <div class="about-content">
-                <img 
-                    src="profile.jpg" 
-                    alt="Photo of me" 
-                    class="about-photo"
-                    loading="lazy"
-                />
-                <div class="about-text">
-                    <p>I work on projects that connect health and the environment. What matters most to me is whether the work actually helps people, whether through research, fundraising, or advocacy that leads to real change.</p>
-                    <p>Outside my projects, I've been reading <em>Confessions</em> by St. Augustine, learning to color grade, and tinkering with small electronics. I also love traveling and seeing firsthand how culture shapes the way people build and solve problems.</p>
-                </div>
-            </div>
+    <!-- 02 Leadership and service -->
+    <section id="service" aria-labelledby="service-h">
+      <div class="row section-head">
+        <div class="note" aria-hidden="true"><span class="num">02</span><svg class="doodle" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M16,152H48v56H16a8,8,0,0,1-8-8V160A8,8,0,0,1,16,152ZM192.54,40A39.12,39.12,0,0,0,156,64a39.12,39.12,0,0,0-36.54-24C97.67,40,80,58.31,80,80c0,14.56,7,27.71,16.73,40H140a20,20,0,0,1,0,40h4l37.78-8.68C203.820,135.07,232,109.23,232,80,232,58.31,214.33,40,192.54,40Z" fill="#C2E6FA"/><path d="M230.33,141.06a24.34,24.34,0,0,0-18.61-4.77C230.5,117.33,240,98.48,240,80c0-26.47-21.29-48-47.46-48A47.58,47.58,0,0,0,156,48.75,47.58,47.58,0,0,0,119.46,32C93.29,32,72,53.53,72,80c0,11,3.24,21.69,10.06,33a31.87,31.87,0,0,0-14.75,8.4L44.69,144H16A16,16,0,0,0,0,160v40a16,16,0,0,0,16,16H120a7.93,7.93,0,0,0,1.94-.24l64-16a6.94,6.94,0,0,0,1.19-.4L226,182.82l.44-.2a24.6,24.6,0,0,0,3.93-41.56ZM119.46,48A31.15,31.15,0,0,1,148.6,67a8,8,0,0,0,14.8,0,31.15,31.15,0,0,1,29.14-19C209.59,48,224,62.65,224,80c0,19.51-15.79,41.58-45.66,63.9l-11.09,2.55A28,28,0,0,0,140,112H100.68C92.05,100.36,88,90.12,88,80,88,62.65,102.41,48,119.46,48ZM16,160H40v40H16Zm203.43,8.21-38,16.18L119,200H56V155.31l22.63-22.62A15.86,15.86,0,0,1,89.94,128H140a12,12,0,0,1,0,24H112a8,8,0,0,0,0,16h32a8.32,8.32,0,0,0,1.79-.2l67-15.41.31-.08a8.6,8.6,0,0,1,6.3,15.9Z" fill="#00619A"/></svg></div>
+        <div class="body"><h2 id="service-h">Leadership and service</h2></div>
+      </div>
+
+      <article class="row entry">
+        <div class="note mono" aria-hidden="true">02.1<br>Elder fraud</div>
+        <div class="body measure">
+          <h3>ScamSafe</h3>
+          <p class="role">Founder</p>
+          <p>ScamSafe is a free AI tool for checking suspicious messages. You paste in a text or email, and it explains the warning signs in plain language along with what to do next. It works in seven languages. There's no account, and messages are never stored. The National Adult Protective Services Association backs the project, and I'm speaking at its conference in November 2026.</p>
+          <ul class="links">
+            <li><a class="ext" href="https://scamsafe.us">scamsafe.us</a></li>
+          </ul>
         </div>
-    </section>
-    <section id="projects">
-        <div class="container">
-            <div class="section-meta">Selected Work</div>
-            <h2>Projects</h2>
-            <div class="projects-grid">
-                <a href="https://www.ssbtr.org/" class="project-card" target="_blank" rel="noopener">
-                    <div class="project-meta">Fundraising</div>
-                    <div class="project-title">
-                        <span>SSBTR</span>
-                        <span class="arrow">↗</span>
-                    </div>
-                    <p class="project-description">Pediatric brain tumor research fundraising and outreach</p>
-                </a>
+      </article>
 
-                <a href="https://tmrinfocus.org/" class="project-card" target="_blank" rel="noopener">
-                    <div class="project-meta">Documentary</div>
-                    <div class="project-title">
-                        <span>Tomorrow in Focus</span>
-                        <span class="arrow">↗</span>
-                    </div>
-                    <p class="project-description">Visual storytelling on climate, AI, and equity</p>
-                </a>
-
-                <a href="https://www.addictionawareness.us/" class="project-card" target="_blank" rel="noopener">
-                    <div class="project-meta">Advocacy</div>
-                    <div class="project-title">
-                        <span>Addiction Awareness</span>
-                        <span class="arrow">↗</span>
-                    </div>
-                    <p class="project-description">Youth-led education, advocacy, and service initiatives</p>
-                </a>
-
-                <a href="https://imagineland2040.org/" class="project-card" target="_blank" rel="noopener">
-                    <div class="project-meta">Speculative Research</div>
-                    <div class="project-title">
-                        <span>ImagineLand2040</span>
-                        <span class="arrow">↗</span>
-                    </div>
-                    <p class="project-description">Climate futures, land use, and speculative storytelling</p>
-                </a>
-
-                <a href="https://autismdiscovery.org/index.php/home-adtf" class="project-card" target="_blank" rel="noopener">
-                    <div class="project-meta">Research</div>
-                    <div class="project-title">
-                        <span>Cancer Research (ADTF)</span>
-                        <span class="arrow">↗</span>
-                    </div>
-                    <p class="project-description">Metabolic and neurological research through the Autism Discovery & Treatment Foundation</p>
-                </a>
-
-                <a href="https://access.asu.edu/programs/scene" class="project-card" target="_blank" rel="noopener">
-                    <div class="project-meta">Program</div>
-                    <div class="project-title">
-                        <span>ASU SCENE</span>
-                        <span class="arrow">↗</span>
-                    </div>
-                    <p class="project-description">Environmental research and ISEF-track project development</p>
-                </a>
-            </div>
+      <article class="row entry">
+        <div class="note mono" aria-hidden="true">02.2<br>Brain tumor research</div>
+        <div class="body measure">
+          <h3>Students Supporting Brain Tumor Research</h3>
+          <p class="role">Statewide co-chair</p>
+          <p>SSBTR is Arizona's largest student-run nonprofit. It raises money for pediatric brain tumor research. I joined as an ambassador in ninth grade and I'm now a statewide co-chair.</p>
+          <ul class="links">
+            <li><a class="ext" href="https://www.ssbtr.org">ssbtr.org</a></li>
+          </ul>
         </div>
-    </section>
-    <section id="contact">
-        <div class="container">
-            <div class="contact-content">
-                <div class="section-meta">Get in Touch</div>
-                <h2>Connect</h2>
-                <p class="contact-intro">I'm always open to conversation! Contact me here.</p>
-                <div class="contact-grid">
-                    <div class="contact-item">
-                        <span class="contact-label">Email</span>
-                        <a href="mailto:shilokarakkattu@gmail.com" class="contact-link">
-                            <svg fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                            </svg>
-                            shilokarakkattu@gmail.com
-                        </a>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-label">LinkedIn</span>
-                        <a href="https://www.linkedin.com/in/shilo-k/" class="contact-link" target="_blank" rel="noopener">
-                            <svg fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                            </svg>
-                            /in/shilo-k
-                        </a>
-                    </div>
-                </div>
-            </div>
+      </article>
+
+      <article class="row entry">
+        <div class="note mono" aria-hidden="true">02.3<br>State government</div>
+        <div class="body measure">
+          <h3>Arizona Governor's Youth Commission</h3>
+          <p class="role">Commissioner, 2026-27</p>
+          <p>The Governor appointed me to the commission for the 2026-27 term. I'm in the Substance Use Prevention work group.</p>
         </div>
+      </article>
+
+      <article class="row entry">
+        <div class="note mono" aria-hidden="true">02.4<br>Addiction</div>
+        <div class="body measure">
+          <h3>Addiction Awareness Association</h3>
+          <p class="role">Founder and President, Arizona chapter</p>
+          <p>I started the Arizona chapter of this student-led nonprofit. We raise money for rehabilitation facilities and coordinate volunteers. I've helped students in other states start their own chapters.</p>
+          <ul class="links">
+            <li><a class="ext" href="https://www.addictionawareness.us">addictionawareness.us</a></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="row entry">
+        <div class="note mono" aria-hidden="true">02.5<br>Film and the UN</div>
+        <div class="body measure">
+          <h3>Tomorrow in Focus</h3>
+          <p class="role">Junior Producer</p>
+          <p>Tomorrow in Focus is a UN-accredited nonprofit that makes AI films for impact organizations. I was the only high school student on the production team for Imagine Land 2040. The film was made with the UN Convention to Combat Desertification and premiered at COP16 in Riyadh in December 2024. I was the liaison to UN representatives for Brazil, Senegal, and China, and their input changed parts of the script. I contributed to UNESCO's World Trends in Freedom of Expression and Media Development report. I've also worked on the organization's projects with UNICEF Innocenti and the G20 Global Land Initiative.</p>
+          <ul class="links">
+            <li><a class="ext" href="https://www.tmrinfocus.org">tmrinfocus.org</a></li>
+            <li><a class="ext" href="https://imagineland2040.org">Imagine Land 2040</a></li>
+          </ul>
+        </div>
+      </article>
     </section>
 
-    <footer>
-        <p>© 2026 Shilo Karakkattu</p>
-    </footer>
+    <!-- 03 Recognition -->
+    <section id="recognition" aria-labelledby="recognition-h">
+      <div class="row section-head">
+        <div class="note" aria-hidden="true"><span class="num">03</span><svg class="doodle" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M200,48v63.1c0,39.7-31.75,72.6-71.45,72.9A72,72,0,0,1,56,112V48Z" fill="#C2E6FA"/><path d="M232,64H208V48a8,8,0,0,0-8-8H56a8,8,0,0,0-8,8V64H24A16,16,0,0,0,8,80V96a40,40,0,0,0,40,40h3.65A80.13,80.13,0,0,0,120,191.61V216H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16H136V191.58c31.94-3.23,58.44-25.64,68.08-55.58H208a40,40,0,0,0,40-40V80A16,16,0,0,0,232,64ZM48,120A24,24,0,0,1,24,96V80H48v32q0,4,.39,8Zm144-8.9c0,35.52-29,64.64-64,64.9a64,64,0,0,1-64-64V56H192ZM232,96a24,24,0,0,1-24,24h-.5a81.81,81.81,0,0,0,.5-8.9V80h24Z" fill="#00619A"/></svg></div>
+        <div class="body"><h2 id="recognition-h">Recognition</h2></div>
+      </div>
+
+      <article class="row entry">
+        <div class="note mono" aria-hidden="true">03.1<br>Innovation</div>
+        <div class="body measure">
+          <h3>Governor's Celebration of Innovation</h3>
+          <p class="role">Future Innovator of the Year, 2026</p>
+          <p>I was named a Future Innovator of the Year at the Governor's Celebration of Innovation. The award goes to standout Arizona Science and Engineering Fair students and is presented by the Arizona Technology Council and the Arizona Commerce Authority.</p>
+        </div>
+      </article>
+
+      <article class="row entry">
+        <div class="note mono" aria-hidden="true">03.2<br>Global leadership</div>
+        <div class="body measure">
+          <h3>Three Dot Dash</h3>
+          <p class="role">2026 Global Teen Leader</p>
+          <p>The We Are Family Foundation selected me as a 2026 Global Teen Leader for my work with Tomorrow in Focus and my hydrogel bead project. I'm one of 30 teens chosen worldwide. The program includes a year of mentorship and the Just Peace Summit in London.</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- 04 Press -->
+    <section id="press" aria-labelledby="press-h">
+      <div class="row section-head">
+        <div class="note" aria-hidden="true"><span class="num">04</span><svg class="doodle" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M224,64V184a16,16,0,0,1-16,16H32a16,16,0,0,0,16-16V64a8,8,0,0,1,8-8H216A8,8,0,0,1,224,64Z" fill="#C2E6FA"/><path d="M88,112a8,8,0,0,1,8-8h80a8,8,0,0,1,0,16H96A8,8,0,0,1,88,112Zm8,40h80a8,8,0,0,0,0-16H96a8,8,0,0,0,0,16ZM232,64V184a24,24,0,0,1-24,24H32A24,24,0,0,1,8,184.11V88a8,8,0,0,1,16,0v96a8,8,0,0,0,16,0V64A16,16,0,0,1,56,48H216A16,16,0,0,1,232,64Zm-16,0H56V184a23.84,23.84,0,0,1-1.37,8H208a8,8,0,0,0,8-8Z" fill="#00619A"/></svg></div>
+        <div class="body"><h2 id="press-h">Press</h2></div>
+      </div>
+      <div class="row">
+        <div class="note mono" aria-hidden="true"></div>
+        <div class="body measure">
+          <ul class="press">
+            <li><span class="mono">ABC15 Arizona</span><a class="ext" href="https://www.abc15.com/videos/news/uplifting-arizona/mesa-teen-builds-free-scam-detection-tool-to-protect-seniors-from-fraud">Mesa teen builds free scam detection tool to protect seniors from fraud</a>
+              <ul class="press-also">
+                <li><span class="mono">ABC15 Arizona</span><a class="ext" href="https://www.abc15.com/news/uplifting-arizona/watch-mesa-teen-builds-free-scam-detection-tool-to-protect-seniors-from-fraud">WATCH: Mesa teen builds free scam detection tool to protect seniors from fraud</a></li>
+                <li><span class="mono">ABC15 Arizona</span><a class="ext" href="https://www.abc15.com/news/am-roundup/am-roundup-deadly-us-93-crash-peoria-unified-warrant-served-us-out-of-world-cup">AM Roundup: Deadly US 93 crash, Peoria Unified warrant served, US out of World Cup</a></li>
+              </ul>
+            </li>
+            <li><span class="mono">AZ Big Media</span><a class="ext" href="https://azbigmedia.com/business/mesa-teen-builds-ai-powered-scamsafe-to-protect-seniors/">Mesa teen builds AI-powered ScamSafe to protect seniors</a>
+              <ul class="press-also">
+                <li><span class="mono">NewsBreak</span><a class="ext" href="https://www.newsbreak.com/news/4664308402256-mesa-teen-builds-ai-powered-scamsafe-to-protect-seniors">Mesa teen builds AI-powered ScamSafe to protect seniors</a></li>
+              </ul>
+            </li>
+            <li><span class="mono">Mesa Tribune</span><a class="ext" href="https://www.themesatribune.com/community/mesa-teens-web-tool-helps-protect-seniors/article_32cd11fc-9571-4abd-b9c7-beafbd6bedf3.html">Mesa teen's web tool helps protect seniors</a>
+              <ul class="press-also">
+                <li><span class="mono">NewsBreak</span><a class="ext" href="https://www.newsbreak.com/news/4638735421619-mesa-teen-s-web-tool-helps-protect-seniors">Mesa teen's web tool helps protect seniors</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 Contact -->
+    <section id="contact" aria-labelledby="contact-h">
+      <div class="row section-head">
+        <div class="note" aria-hidden="true"><span class="num">05</span><svg class="doodle" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M224,56l-96,88L32,56Z" fill="#C2E6FA"/><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z" fill="#00619A"/></svg></div>
+        <div class="body"><h2 id="contact-h">Reach out to me</h2></div>
+      </div>
+      <div class="row">
+        <div class="note mono" aria-hidden="true"></div>
+        <div class="body measure">
+          <p>Feel free to reach out by email or on LinkedIn.</p>
+          <ul class="contact-list">
+            <li><span class="mono">Email</span><a href="mailto:shilokarakkattu@gmail.com">shilokarakkattu@gmail.com</a></li>
+            <li><span class="mono">LinkedIn</span><a class="ext" href="https://www.linkedin.com/in/shilo-karakkattu">linkedin.com/in/shilo-karakkattu</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="row">
+    <div class="note mono" aria-hidden="true"></div>
+    <div class="body mono"><p>&copy; 2026 Shilo Karakkattu</p></div>
+  </footer>
+
+</div>
+
+<div class="intro" id="intro">
+  <div class="stage">
+    <div class="shift">
+      <button class="book" type="button" id="book" aria-label="Open the notebook and go to the site">
+        <span class="pages" aria-hidden="true"><span class="hand page-hi">hi!</span></span>
+        <span class="cover" aria-hidden="true">
+          <span class="face back"></span>
+          <span class="face front">
+            <span class="label">
+              <span class="mono">NAME</span>
+              <span class="hand">Shilo Karakkattu</span>
+              <span class="mono">CLASS OF</span>
+              <span class="hand">2027</span>
+            </span>
+            <svg class="pin-cactus" viewBox="0 0 256 256" focusable="false"><path d="M232,116h0a60,60,0,0,1-60,60H160v40H96V136H84A60,60,0,0,1,24,76h0A20,20,0,0,1,44,56h0A20,20,0,0,1,64,76,20,20,0,0,0,84,96H96V56a32,32,0,0,1,32-32h0a32,32,0,0,1,32,32v80h12a20,20,0,0,0,20-20,20,20,0,0,1,20-20h0A20,20,0,0,1,232,116Z" fill="#6DBE6A"/><path d="M216,208H168V184h4a68.07,68.07,0,0,0,68-68,28,28,0,0,0-56,0,12,12,0,0,1-12,12h-4V56a40,40,0,0,0-80,0V88H84A12,12,0,0,1,72,76a28,28,0,0,0-56,0,68.07,68.07,0,0,0,68,68h4v64H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16ZM96,128H84A52.060,52.060,0,0,1,32,76a12,12,0,0,1,24,0,28,28,0,0,0,28,28H96a8,8,0,0,0,8-8V56a24,24,0,0,1,48,0v80a8,8,0,0,0,8,8h12a28,28,0,0,0,28-28,12,12,0,0,1,24,0,52.06,52.06,0,0,1-52,52H160a8,8,0,0,0-8,8v32H104V136A8,8,0,0,0,96,128Z" fill="#1C1F2B"/><circle cx="128" cy="22" r="14" fill="#F9A8B8" stroke="#1C1F2B" stroke-width="8"/></svg>
+            <span class="strand" aria-hidden="true"><span class="rb big" style="--i:0"></span><span class="rb" style="--i:1"></span><span class="rb" style="--i:2"></span><span class="rb" style="--i:3"></span><span class="rb" style="--i:4"></span><span class="rb" style="--i:5"></span><span class="rb" style="--i:6"></span><span class="rb" style="--i:7"></span><span class="rb" style="--i:8"></span><span class="rb" style="--i:9"></span><span class="rb" style="--i:10"></span><span class="rb big" style="--i:11"></span><span class="rb" style="--i:12"></span><span class="rb" style="--i:13"></span><span class="rb" style="--i:14"></span><span class="rb" style="--i:15"></span><span class="rb" style="--i:16"></span><span class="rb" style="--i:17"></span><span class="rb" style="--i:18"></span><span class="rb" style="--i:19"></span><span class="rb" style="--i:20"></span><span class="rb" style="--i:21"></span></span>
+            <span class="tail-wrap" aria-hidden="true"><svg class="tail" viewBox="0 0 30 92" focusable="false"><path d="M15 0V70" stroke="#8A8F99" stroke-width="1.1"/><ellipse cx="15" cy="9" rx="5" ry="6.4" fill="#D5D9E0" stroke="#1C1F2B" stroke-width="1.3"/><circle cx="15" cy="24" r="4.2" fill="#7CC8F2" stroke="#1C1F2B" stroke-width="1.2"/><circle cx="15" cy="35" r="4.2" fill="#7CC8F2" stroke="#1C1F2B" stroke-width="1.2"/><circle cx="15" cy="46" r="4.2" fill="#7CC8F2" stroke="#1C1F2B" stroke-width="1.2"/><circle cx="15" cy="58" r="5.2" fill="#7CC8F2" stroke="#1C1F2B" stroke-width="1.2"/><g fill="#fff" opacity=".85"><circle cx="13.6" cy="22.6" r="1.2"/><circle cx="13.6" cy="33.6" r="1.2"/><circle cx="13.6" cy="44.6" r="1.2"/><circle cx="13.3" cy="56.3" r="1.5"/></g><path d="M13 66h4v6h6v4h-6v15h-4V76H7v-4h6z" fill="#D5D9E0" stroke="#1C1F2B" stroke-width="1.3" stroke-linejoin="round"/></svg></span>
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>
+  <span class="floor" aria-hidden="true"></span>
+  <p class="hint" aria-hidden="true"><span class="hand">click to open</span><span class="mono">or scroll &darr;</span></p>
+</div>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var intro = document.getElementById("intro");
+    if (!root.classList.contains("intro-on")) { intro.remove(); root.classList.add("ready"); return; }
+
+    var sheet = document.querySelector(".sheet");
+    var book = document.getElementById("book");
+    var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var done = false;
+
+    if (window.matchMedia("(hover: none)").matches) {
+      intro.querySelector(".hint .hand").textContent = "tap to open";
+      intro.querySelector(".hint .mono").textContent = "or swipe up";
+    }
+    sheet.inert = true;
+
+    function open() {
+      if (done) return;
+      done = true;
+      try { sessionStorage.setItem("sk-opened", "1"); } catch (e) {}
+      intro.classList.add("opening");
+      setTimeout(function () { intro.classList.add("closing"); }, still ? 0 : 1500);
+      setTimeout(function () {
+        root.classList.remove("intro-on");
+        intro.remove();
+        sheet.inert = false;
+        window.scrollTo(0, 0);
+        root.classList.add("ready");
+      }, still ? 200 : 2150);
+    }
+
+    book.addEventListener("click", open);
+    window.addEventListener("wheel", function (e) { if (e.deltaY > 0) open(); }, { passive: true });
+    window.addEventListener("touchmove", open, { passive: true });
+    window.addEventListener("keydown", function (e) {
+      if (e.target === book && (e.key === "Enter" || e.key === " ")) return;
+      if (["ArrowDown", "PageDown", "End", " ", "Enter", "Escape"].indexOf(e.key) > -1) open();
+    });
+  })();
+
+  // Menu: mark the section in view, and show a hairline under the sticky bar once you scroll.
+  (function () {
+    var bar = document.getElementById("top");
+    var links = {};
+    [].forEach.call(bar.querySelectorAll('nav a[href^="#"]'), function (a) {
+      links[a.getAttribute("href").slice(1)] = a;
+    });
+
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        bar.classList.toggle("scrolled", window.scrollY > 8);
+        ticking = false;
+      });
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    if (!("IntersectionObserver" in window)) return;
+    var current = null;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var link = links[e.target.id];
+        if (e.isIntersecting) {
+          if (current) current.removeAttribute("aria-current");
+          current = link || null;
+          if (current) current.setAttribute("aria-current", "location");
+        } else if (link === current && e.boundingClientRect.top > 0) {
+          // Scrolled back up above the first section
+          current.removeAttribute("aria-current");
+          current = null;
+        }
+      });
+    }, { rootMargin: "-35% 0px -60% 0px" });
+    Object.keys(links).forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+  })();
+</script>
 </body>
 </html>
